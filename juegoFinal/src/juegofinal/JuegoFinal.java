@@ -8,13 +8,15 @@ package juegofinal;
  *
  * @author frank
  */
+// Vamos a dar inicio del proyecto 
 public class JuegoFinal {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        int nose = 1;
         // TODO code application logic here
     }
-    
+   
 }
