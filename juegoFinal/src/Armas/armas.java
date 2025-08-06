@@ -13,6 +13,7 @@ public class armas {
     public String tipoArma;
     public int dannioMinimo;
     public int dannioMaximo;
+    public boolean causaSangrado = false;
 
     public armas(String nombreArma, String tipoArma, int dannioMinimo, int dannioMaximo) {
         this.nombreArma = nombreArma;
@@ -61,6 +62,9 @@ public class armas {
         return "armas{" + "nombreArma=" + nombreArma + ", tipoArma=" + tipoArma + ", dannioMinimo=" + dannioMinimo + ", dannioMaximo=" + dannioMaximo + '}';
     }
 
+    public boolean tieneSangrado() {
+    return causaSangrado;
+}
     
     
     

@@ -13,25 +13,47 @@ import Armas.armas;
 // creamos los atributos de Personajes 
 public abstract class Personaje {
     public String nombre;
-    public  double vida;
+    public  int vida;
     public armas arma;
     public String tipoRaza;
+    public int vidamaxima;
+    public int turnosSangrando = 0;
+    
     //personajes
     
     
 // creamos el constructor
-    public Personaje(String nombre, double vida, armas arma, String tipoRaza) {  
+   public Personaje(String nombre, int vida, armas arma, String tipoRaza) {
         this.nombre = nombre;
         this.vida = vida;
+        this.vidamaxima = vida;
         this.arma = arma;
         this.tipoRaza = tipoRaza;
     }
+   
     public String getNombre() {
         return nombre;
     }
 
+    public String getTipoRaza() {
+        return tipoRaza;
+    }
+
+    public void setTipoRaza(String tipoRaza) {
+        this.tipoRaza = tipoRaza;
+    }
+
+     public int getVidamaxima() {
+        return vidamaxima;
+    }
+  
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+       public void setVidamaxima(int vidamaxima) {
+        this.vidamaxima = vidamaxima;
     }
 
     public double getVida() {
@@ -39,7 +61,7 @@ public abstract class Personaje {
     }
 
     public void setVida(double vida) {
-        this.vida = vida;
+        this.vida = (int) vida;
     }
 
     public armas getArma() {
@@ -65,7 +87,7 @@ public abstract class Personaje {
     public String toString() {
         return "Personaje{" + "nombre=" + nombre + ", vida=" + vida + ", arma=" + arma + ", tipoRazo=" + tipoRaza+ '}';
     }
-    public void recibirDanio(double cantidad) {
+    public void recibirDanio(int cantidad) {
     this.vida -= cantidad;
     if (this.vida < 0) {
         this.vida = 0;
@@ -73,7 +95,10 @@ public abstract class Personaje {
     System.out.println(nombre + " ha recibido " + cantidad + " de daño. Vida restante: " + vida);
 }
    
+    public void activarSangrado(int turnos) {//esto es para activar el sangrado del Orco
+    this.turnosSangrando = turnos;
+}
     public abstract void atacar(Personaje objetivo); // metodo abstracto para ser heredado
     // se cambia despues en sus clases
-    
+    public abstract void curarse();
 }
