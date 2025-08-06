@@ -60,6 +60,8 @@ public class armas {
     public String toString() {
         return "armas{" + "nombreArma=" + nombreArma + ", tipoArma=" + tipoArma + ", dannioMinimo=" + dannioMinimo + ", dannioMaximo=" + dannioMaximo + '}';
     }
+
+    
     
     
 }
