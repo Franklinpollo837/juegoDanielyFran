@@ -4,14 +4,27 @@
  */
 package Personajes;
 
+import Armas.armas;
+
 /**
  *
  * @author danir
  */
-public class Orco {
-    //hola
+public class Orco extends Personaje {
+
+    public Orco(String nombre, double vida, armas arma, String tipoRaza) {
+        super(nombre, vida, arma, tipoRaza);
+    }
+
+    @Override
+    //con este metodo creamos la manera de atacar del orco
+    public void atacar(Personaje objetivo)  {
+      int danio = arma.calcularDanio();
+        System.out.println(nombre + " ataca con " + arma.getNombreArma() + " y causa " + danio + " de daño.");
+        objetivo.recibirDanio(danio);
+    }
     
-    //este es el orco
+
     
     
 
