@@ -16,6 +16,8 @@ public abstract class Personaje {
     public  double vida;
     public armas arma;
     public String tipoRaza;
+    public double vidamaxima;
+    
     //personajes
     
     
@@ -24,10 +26,27 @@ public abstract class Personaje {
         this.nombre = nombre;
         this.vida = vida;
         this.arma = arma;
+        this.vidamaxima = vida;
         this.tipoRaza = tipoRaza;
     }
     public String getNombre() {
         return nombre;
+    }
+
+    public String getTipoRaza() {
+        return tipoRaza;
+    }
+
+    public void setTipoRaza(String tipoRaza) {
+        this.tipoRaza = tipoRaza;
+    }
+
+    public double getVidamaxima() {
+        return vidamaxima;
+    }
+
+    public void setVidamaxima(double vidamaxima) {
+        this.vidamaxima = vidamaxima;
     }
 
     public void setNombre(String nombre) {
@@ -75,5 +94,5 @@ public abstract class Personaje {
    
     public abstract void atacar(Personaje objetivo); // metodo abstracto para ser heredado
     // se cambia despues en sus clases
-    
+    public abstract void curarse();
 }

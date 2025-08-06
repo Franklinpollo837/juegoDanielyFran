@@ -11,10 +11,12 @@ import Armas.armas;
  * @author danir
  */
 public class Orco extends Personaje {
-
+    private boolean curacionPendiente = false;
     public Orco(String nombre, double vida, armas arma, String tipoRaza) {
         super(nombre, vida, arma, tipoRaza);
     }
+
+   
 
     @Override
     //con este metodo creamos la manera de atacar del orco
@@ -23,7 +25,29 @@ public class Orco extends Personaje {
         System.out.println(nombre + " ataca con " + arma.getNombreArma() + " y causa " + danio + " de daño.");
         objetivo.recibirDanio(danio);
     }
+
+    @Override
+    public void curarse() {
+      double cantidadCurada = vidamaxima * 0.25;
+        vida += cantidadCurada;
+        if (vida > vidamaxima) {
+            vida = vidamaxima;
+        }
+        curacionPendiente = true;
+        System.out.println(nombre + " usa una pócima y se cura " + cantidadCurada + ". Vida actual: " + vida);
+    }
     
+    public void sanarTurnoSiguiente() {
+        if (curacionPendiente) {
+            double cantidadCurada = vidamaxima * 0.15;
+            vida += cantidadCurada;
+            if (vida > vidamaxima) {
+                vida = vidamaxima;
+            }
+            curacionPendiente = false;
+            System.out.println(nombre + " recibe sanación adicional de " + cantidadCurada + ". Vida actual: " + vida);
+        }
+    }
 
     
     
