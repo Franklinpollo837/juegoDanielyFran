@@ -15,14 +15,16 @@ public class Personaje {
     public String nombre;
     public  double vida;
     public armas arma;
-    public String tipoRazo;
+    public String tipoRaza;
+    
     
 // creamos el constructor
-    public Personaje(String nombre, double vida) {
+    public Personaje(String nombre, double vida, armas arma, String tipoRazo) {  
         this.nombre = nombre;
         this.vida = vida;
+        this.arma = arma;
+        this.tipoRaza = tipoRazo;
     }
-// creamos getter y setter
     public String getNombre() {
         return nombre;
     }
@@ -38,12 +40,31 @@ public class Personaje {
     public void setVida(double vida) {
         this.vida = vida;
     }
-// toString 
+
+    public armas getArma() {
+        return arma;
+    }
+
+    public void setArma(armas arma) {
+        this.arma = arma;
+    }
+
+    public String getTipoRazo() {
+        return tipoRaza;
+    }
+
+// creamos getter y setter
+    public void setTipoRazo(String tipoRazo) {
+        this.tipoRaza = tipoRazo;
+    }
+
+// toString
+
     @Override
     public String toString() {
-        return "Personaje{" + "nombre=" + nombre + ", vida=" + vida + '}';
+        return "Personaje{" + "nombre=" + nombre + ", vida=" + vida + ", arma=" + arma + ", tipoRazo=" + tipoRaza+ '}';
     }
-    
+   
     
     
 }
