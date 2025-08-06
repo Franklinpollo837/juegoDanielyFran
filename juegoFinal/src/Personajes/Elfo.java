@@ -5,6 +5,7 @@
 package Personajes;
 
 import Armas.armas;
+import java.util.Random;
 
 /**
  *
@@ -13,65 +14,84 @@ import Armas.armas;
 public class Elfo extends Personaje {
     private int dannioAcumulado;
     private String tipoMagia;
+    private Random random = new Random();
 
-    public Elfo(int dannioAcumulado, String tipoMagia, String nombre, double vida, armas arma, String tipoRaza) {
-        super(nombre, vida, arma, tipoRaza);
-        this.dannioAcumulado = dannioAcumulado;
+    public Elfo(String nombre, armas arma, String tipoMagia) {
+        super(nombre, 100, arma, "Elfo"); // valor por defecto
         this.tipoMagia = tipoMagia;
+        this.dannioAcumulado = 0;
+
+        // Si es magia de agua, ajustar vida máxima y vida actual a 115
+        if (tipoMagia.equalsIgnoreCase("Agua")) {
+            this.vida = 115;
+            this.vidamaxima = 115;
+        }
     }
 
     @Override
     public void atacar(Personaje objetivo) {
         int danio = 0;
 
-    if (tipoMagia.equalsIgnoreCase("Fuego")) {
-        danio = getArma().calcularDanio();
-        danio += danio * 0.10; // +10%
-    } 
-    else if (tipoMagia.equalsIgnoreCase("Tierra")) {
-        danio = getArma().calcularDanio();
-        danio += danio * 0.02; // +2%
-        if (Math.random() < 0.3) { // 30% de atacar dos veces
-            int extra = getArma().calcularDanio();
-            System.out.println("¡Ataque doble con tierra! Daño adicional: " + extra);
-            danio += extra;
+     if (tipoMagia.equalsIgnoreCase("Fuego")) {
+            danio = arma.calcularDanio();
+            danio += (int) (danio * 0.10); // +10%
+        } else if (tipoMagia.equalsIgnoreCase("Tierra")) {
+            danio = arma.calcularDanio();
+            danio += (int) (danio * 0.02); // +2%
+            // Chance de doble ataque
+            if (random.nextDouble() < 0.30) {
+                int extra = arma.calcularDanio();
+                System.out.println("¡Ataque doble con magia de Tierra! Daño adicional: " + extra);
+                danio += extra;
+            }
+        } else if (tipoMagia.equalsIgnoreCase("Aire")) {
+            danio = arma.calcularDanio();
+        } else if (tipoMagia.equalsIgnoreCase("Agua")) {
+            danio = arma.calcularDanio();
+        } else {
+            System.out.println("Tipo de magia desconocido. No se ejecutó el ataque.");
+            return;
         }
-    } 
-    else if (tipoMagia.equalsIgnoreCase("Aire")) {
-        danio = getArma().calcularDanio(); // luego podés agregar daño extra si está a distancia
-    } 
-    else if (tipoMagia.equalsIgnoreCase("Agua")) {
-        danio = getArma().calcularDanio();
-    }
 
-    objetivo.recibirDanio(danio);
-    System.out.println(getNombre() + " ataco a " + objetivo.getNombre() + " usando magia de " + tipoMagia + " causando " + danio + " de daño.");
+        objetivo.recibirDanio(danio);
+        System.out.println(getNombre() + " atacó a " + objetivo.getNombre() +
+                " usando magia de " + tipoMagia + " causando " + danio + " puntos de daño.");
 }
        public void recibirDanio(int cantidad) {
         super.recibirDanio(cantidad);
         dannioAcumulado += cantidad;
     }
 
-    public void sanar() {
-        double porcentajeCura = tipoMagia.equalsIgnoreCase("Agua") ? 0.90 : 0.75;
-        int vidaRecuperada = (int)(dannioAcumulado * porcentajeCura);
-        this.vida += vidaRecuperada;
+    @Override
+    public void curarse() {
+       double porcentajeCura;
 
-        if (tipoMagia.equalsIgnoreCase("Agua") && this.vida > 115) {
-            this.vida = 115;
-        } else if (this.vida > 100) {
-            this.vida = 100;
-        }
+if (tipoMagia.equalsIgnoreCase("Agua")) {
+    porcentajeCura = 0.90;
+} else {
+    porcentajeCura = 0.75;
+}
 
-        dannioAcumulado = 0;
+int vidaRecuperada = (int) (dannioAcumulado * porcentajeCura);
+this.vida += vidaRecuperada;
 
-        System.out.println(getNombre() + " uso un hechizo de sanacion y recupero " + vidaRecuperada + " puntos de vida.");
-    }
+if (this.vida > this.vidamaxima) {
+    this.vida = this.vidamaxima;
+}
+
+System.out.println(getNombre() + " usó un hechizo de sanación y recuperó " +
+        vidaRecuperada + " puntos de vida. Vida actual: " + this.vida);
+
+// Reiniciar el acumulador
+dannioAcumulado = 0;
+ }
 
     public String getTipoMagia() {
         return tipoMagia;
     }
+    
+        public void setTipoMagia(String tipoMagia) {
+        this.tipoMagia = tipoMagia;
     }
-    
-    
+     }
 
