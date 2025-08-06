@@ -37,7 +37,7 @@ public class Humano extends Personaje {
 
     // Acumular daño para la sanación
     // (si esta clase también define recibirDanio, también se puede manejar ahí)
-    System.out.println(getNombre() + " atacó a " + objetivo.getNombre() + " con " + nombreArma + " causando " + danio + " de daño.");
+    System.out.println(getNombre() + " ataco a " + objetivo.getNombre() + " con " + nombreArma + " causando " + danio + " de daño.");
 }
     
      public void recibirDanio(int cantidad) {
@@ -52,7 +52,7 @@ public class Humano extends Personaje {
             this.vida = 100;
         }
         dannioAcumulado = 0;
-        System.out.println(nombre + " comió y recuperó " + vidaRecuperada + " puntos de vida.");
+        System.out.println(nombre + " comio y recupero " + vidaRecuperada + " puntos de vida.");
     }
 }
    
