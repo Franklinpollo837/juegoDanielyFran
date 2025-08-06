@@ -16,7 +16,7 @@ public abstract class Personaje {
     public  double vida;
     public armas arma;
     public String tipoRaza;
-    
+    //personajes
     
     
 // creamos el constructor
