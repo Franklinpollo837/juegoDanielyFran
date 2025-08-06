@@ -67,5 +67,6 @@ public abstract class Personaje {
     }
    
     public abstract void atacar(Personaje objetivo); // metodo abstracto para ser heredado
+    // se cambia despues en sus clases
     
 }
