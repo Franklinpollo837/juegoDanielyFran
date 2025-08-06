@@ -4,6 +4,8 @@
  */
 package Personajes;
 
+import Armas.armas;
+
 /**
  *
  * @author frank
@@ -12,6 +14,9 @@ package Personajes;
 public class Personaje {
     public String nombre;
     public  double vida;
+    public armas arma;
+    public String tipoRazo;
+    
 // creamos el constructor
     public Personaje(String nombre, double vida) {
         this.nombre = nombre;
