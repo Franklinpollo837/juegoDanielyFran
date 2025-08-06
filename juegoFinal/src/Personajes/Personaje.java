@@ -65,6 +65,13 @@ public abstract class Personaje {
     public String toString() {
         return "Personaje{" + "nombre=" + nombre + ", vida=" + vida + ", arma=" + arma + ", tipoRazo=" + tipoRaza+ '}';
     }
+    public void recibirDanio(double cantidad) {
+    this.vida -= cantidad;
+    if (this.vida < 0) {
+        this.vida = 0;
+    }
+    System.out.println(nombre + " ha recibido " + cantidad + " de daño. Vida restante: " + vida);
+}
    
     public abstract void atacar(Personaje objetivo); // metodo abstracto para ser heredado
     // se cambia despues en sus clases
