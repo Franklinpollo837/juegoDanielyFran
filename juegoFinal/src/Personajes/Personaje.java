@@ -11,19 +11,20 @@ import Armas.armas;
  * @author frank
  */
 // creamos los atributos de Personajes 
-public class Personaje {
+public abstract class Personaje {
     public String nombre;
     public  double vida;
     public armas arma;
     public String tipoRaza;
     
     
+    
 // creamos el constructor
-    public Personaje(String nombre, double vida, armas arma, String tipoRazo) {  
+    public Personaje(String nombre, double vida, armas arma, String tipoRaza) {  
         this.nombre = nombre;
         this.vida = vida;
         this.arma = arma;
-        this.tipoRaza = tipoRazo;
+        this.tipoRaza = tipoRaza;
     }
     public String getNombre() {
         return nombre;
@@ -65,6 +66,6 @@ public class Personaje {
         return "Personaje{" + "nombre=" + nombre + ", vida=" + vida + ", arma=" + arma + ", tipoRazo=" + tipoRaza+ '}';
     }
    
-    
+    public abstract void atacar(Personaje objetivo); // metodo abstracto para ser heredado
     
 }
