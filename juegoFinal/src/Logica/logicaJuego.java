@@ -5,6 +5,7 @@
 package Logica;
 import Armas.Escopeta ;
 import Armas.Rifle;
+import BD.ConexionBD;
 import Personajes.Humanos;
 /**
  *
@@ -17,6 +18,7 @@ public class logicaJuego {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+         ConexionBD.conectar();
         Escopeta escopeton = new Escopeta();
         escopeton.calcularDanio();
         System.out.println(escopeton.calcularDanio());
