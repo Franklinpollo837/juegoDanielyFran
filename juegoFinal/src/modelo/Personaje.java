@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Personajes;
+package modelo;
 
 import Armas.armas;
 
@@ -18,6 +18,7 @@ public abstract class Personaje {
     public String tipoRaza;
     public int vidamaxima;
     public int turnosSangrando = 0;
+    public int fuerza;
     
     //personajes
     
@@ -28,6 +29,7 @@ public abstract class Personaje {
         this.vida = vida;
         this.vidamaxima = vida;
         this.arma = arma;
+        this.fuerza = fuerza;
         this.tipoRaza = tipoRaza;
     }
    
@@ -80,7 +82,14 @@ public abstract class Personaje {
     public void setTipoRazo(String tipoRazo) {
         this.tipoRaza = tipoRazo;
     }
+    
+public int getFuerza() {
+    return fuerza;
+}
 
+public void setFuerza(int fuerza) {
+    this.fuerza = fuerza;
+}
 // toString
 
     @Override

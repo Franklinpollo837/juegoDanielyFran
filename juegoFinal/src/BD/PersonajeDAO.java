@@ -8,25 +8,32 @@ package BD;
  *
  * @author frank
  */
-import BD.ConexionBD;
+import modelo.Personaje;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import modelo.Personaje;
 
 public class PersonajeDAO {
 
-    public static void insertarJugador(String nombre) {
-        String sql = "INSERT INTO jugador(nombre, partidas_ganadas, partidas_perdidas) VALUES (?, 0, 0)";
+    public void guardarPersonaje(Personaje p) {
+        String sql = "INSERT INTO personajes(nombre, raza, vida, energia, fuerza) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conn = ConexionBD.conectar();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, nombre);
-            pstmt.executeUpdate();
-            System.out.println("Jugador insertado correctamente.");
+            stmt.setString(1, p.getNombre());
+            stmt.setString(2, p.getTipoRaza());
+            stmt.setDouble(3, p.getVida());
+           stmt.setDouble(4, p.getArma().getDano());
+            stmt.setDouble(5, p.getFuerza());
+
+            stmt.executeUpdate();
+            System.out.println("✅ Personaje guardado en la base de datos");
 
         } catch (SQLException e) {
-            System.out.println("Error al insertar jugador: " + e.getMessage());
+            System.out.println("❌ Error al guardar el personaje");
+            e.printStackTrace();
         }
     }
 }
