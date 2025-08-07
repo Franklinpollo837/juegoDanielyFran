@@ -20,10 +20,10 @@ public class Bestia extends Personaje {
             }
             System.out.println(nombre + " ataca con puños, inflige 25 de daño y sufre 10 de daño por el esfuerzo. Vida restante: " + vida);
         } else if (arma.getNombreArma().equalsIgnoreCase("Espada")) {
-            danio = (int)(Math.random() * 10) + 1;
+            danio = arma.calcularDanio();
             System.out.println(nombre + " ataca con espada causando " + danio + " de daño.");
         } else {
-            System.out.println("El arma no es válida para Bestia.");
+          
             return;
         }
 
