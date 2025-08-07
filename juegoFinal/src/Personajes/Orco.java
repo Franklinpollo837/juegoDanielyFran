@@ -4,6 +4,7 @@
  */
 package Personajes;
 
+import modelo.Personaje;
 import Armas.armas;
 import java.util.Random;
 

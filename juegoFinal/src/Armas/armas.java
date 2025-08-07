@@ -66,6 +66,10 @@ public class armas {
     public boolean tieneSangrado() {
     return causaSangrado;
 }
+
+    public double getDano() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     
