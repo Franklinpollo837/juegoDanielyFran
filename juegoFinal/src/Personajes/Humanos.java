@@ -25,8 +25,8 @@ public class Humanos extends Personaje{
             danio += danio * 0.02;
         }
 
+        System.out.println(nombre + " ataco con " + arma.getNombreArma()+ " causando " + danio + " de daño.");
         objetivo.recibirDanio(danio);
-        System.out.println(nombre + " atacó con " + arma.getNombreArma()+ " causando " + danio + " de daño.");
     }
     
      @Override
@@ -44,7 +44,7 @@ public class Humanos extends Personaje{
             vida = (int) vidamaxima;
         }
 
-        System.out.println(nombre + " comió y recuperó " + vidaRecuperada + " puntos de vida. Vida actual: " + vida);
+        System.out.println(nombre + " comio y recupero " + vidaRecuperada + " puntos de vida. Vida actual: " + vida);
         dannioAcumulado = 0;
     }
     
