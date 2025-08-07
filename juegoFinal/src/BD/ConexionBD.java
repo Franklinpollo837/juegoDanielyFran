@@ -17,7 +17,7 @@ public class ConexionBD {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/videojuego_turnos";
     private static final String USUARIO = "postgres";
-    private static final String CONTRASENA = "tu_contrasena";
+    private static final String CONTRASENA = "admi";
 
     public static Connection conectar() {
         try {
@@ -30,7 +30,5 @@ public class ConexionBD {
         }
     }
 
-    static Connection conectar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
 }

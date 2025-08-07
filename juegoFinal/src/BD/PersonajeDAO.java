@@ -8,7 +8,7 @@ package BD;
  *
  * @author frank
  */
-import bd.ConexionBD;
+import BD.ConexionBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
