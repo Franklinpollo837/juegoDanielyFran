@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Armas;
-
+import java.util.Random;
 /**
  *
  * @author frank
@@ -54,6 +54,7 @@ public class armas {
         this.dannioMaximo = dannioMaximo;
     }
     public int calcularDanio() {
+        
         return (int) (Math.random() * (dannioMaximo - dannioMinimo + 1)) + dannioMinimo;
     }
 
