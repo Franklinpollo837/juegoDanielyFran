@@ -35,8 +35,9 @@ public class Orco extends Personaje {
         objetivo.recibirDanio(danio);
         
         if (arma.tieneSangrado()){
-            objetivo.activarSangrado(2);
+           
             System.out.println(objetivo.getNombre() + " empieza a sangrar por 2 turnos.");
+             objetivo.activarSangrado(2);
         }
         System.out.println(getNombre() + " atacó con " + arma.getNombreArma()+ " causando " + danio + " de daño.");
     }

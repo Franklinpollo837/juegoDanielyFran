@@ -21,15 +21,18 @@ public class logicaJuego {
     public static void main(String[] args) {
         Logica.SelecionPersonaje creacion = new Logica.SelecionPersonaje();// instancia para la selecion y creacion del personaje
         Scanner sc = new Scanner(System.in);
+        
          ConexionBD.conectar();//metodo para llamar a la base de datos
        int NJugadores= 0;// variable para indicar el numero maximo de jugadores
        int jugadorN1=0;//variable para jugador 1
        int jugadorN2=0;//variable para jugador 2
        String Nombre1;//variable para jugador 1
        String Nombre2;//variable para jugador 2
-       
-       Personaje Personaje1;
-        Personaje Personaje2;
+       Personaje Personaje1 = null;
+        Personaje Personaje2 = null;
+        Usuario usuario1 = null;
+        Usuario usuario2 = null;
+        
          System.out.println("JUEGO INICIADO");
          System.out.println("");
          System.out.println("");
@@ -59,9 +62,9 @@ public class logicaJuego {
                         System.out.println("dijite su nombre como jugador:");
                         Nombre1= sc.next();
                         //instancia del usuario
-                        UsuarioPack.Usuario jugador1 = new UsuarioPack.Usuario(Nombre1, 0);
+                        usuario1 = new UsuarioPack.Usuario(Nombre1, 0);
                         System.out.println("Jugador 1 asignado correctamente\n");
-                        System.out.println("seleciona tu personaje:\n");
+                        System.out.println("selecion de personaje:\n");
                         Personaje1 = creacion.seleccionar(Nombre1);
                         
                         
@@ -78,7 +81,7 @@ public class logicaJuego {
                          System.out.println("dijite su nombre como jugador:");
                         Nombre2= sc.next();
                         //instancia del usuario
-                        UsuarioPack.Usuario jugador2 = new UsuarioPack.Usuario(Nombre2, 0);
+                        usuario2 = new UsuarioPack.Usuario(Nombre2, 0);
                         System.out.println("Jugador 2 asignado correctamente\n");
                          System.out.println("seleciona tu personaje:\n");
                         Personaje2 = creacion.seleccionar(Nombre2);
@@ -90,6 +93,7 @@ public class logicaJuego {
                 default -> System.out.println("Opción inválida. Solo puedes elegir 1 o 2.\n");
             }
             }
+        Logica.Turnos combate = new Logica.Turnos(Personaje1, Personaje2, usuario1, usuario2);
         boolean d = true;
         int escoger;
         while(d){
@@ -111,8 +115,18 @@ public class logicaJuego {
 
     // Usar la opción elegida
     switch (escoger) {
-        case 1 -> System.out.println("Iniciando batalla...");
-        case 2 -> System.out.println("Mostrando stats...");
+        case 1 -> {
+            System.out.println("Iniciando batalla...\n");
+            combate.combate();
+        }
+        
+        case 2 -> {
+            System.out.println("Mostrando stats...");
+             usuario1.PartidasGanadas();
+             usuario2.PartidasGanadas();
+            System.out.println("Partidas ganas por parte de "+usuario1.getNombre()+ " son de: "+usuario1.PartidasGanadas()+"\n");
+            System.out.println("Partidas ganas por parte de "+usuario2.getNombre()+ " son de: "+usuario2.PartidasGanadas()+"\n");
+        }
         case 3 -> {
             System.out.println("Saliendo...");
             d = false; // rompe el bucle externo
@@ -127,7 +141,7 @@ public class logicaJuego {
         
         
         
-        // TODO code application logic here
+ 
        
     }
    

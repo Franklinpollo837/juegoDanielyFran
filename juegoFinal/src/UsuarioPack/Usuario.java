@@ -39,4 +39,9 @@ public class Usuario {
         return "Usuario{" + "Nombre=" + Nombre + ", Nganadas=" + Nganadas + '}';
     }
     
+    public int PartidasGanadas() {
+        this.Nganadas++;
+        return Nganadas;
+    }
+    
 }
