@@ -8,11 +8,11 @@ package BD;
  *
  * @author frank
  */
-import modelo.Personaje;
+import Personajes.Personaje;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import modelo.Personaje;
+import Personajes.Personaje;
 
 public class PersonajeDAO {
 
@@ -29,10 +29,10 @@ public class PersonajeDAO {
             stmt.setDouble(5, p.getFuerza());
 
             stmt.executeUpdate();
-            System.out.println("✅ Personaje guardado en la base de datos");
+            System.out.println(" Personaje guardado en la base de datos");
 
         } catch (SQLException e) {
-            System.out.println("❌ Error al guardar el personaje");
+            System.out.println(" Error al guardar el personaje");
             e.printStackTrace();
         }
     }

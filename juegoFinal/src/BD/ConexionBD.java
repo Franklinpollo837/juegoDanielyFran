@@ -21,7 +21,7 @@ public class ConexionBD {
 
     public static Connection conectar() {
         try {
-            Connection conn = DriverManager.getConnection( "jdbc:postgresql://localhost:5432/videojuego_turnos,admi");
+            Connection conn = DriverManager.getConnection( URL, USUARIO, CONTRASENA);
             System.out.println("Conexión exitosa a PostgreSQL");
             return conn;
         } catch (SQLException e) {
