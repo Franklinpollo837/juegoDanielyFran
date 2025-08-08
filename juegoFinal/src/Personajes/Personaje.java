@@ -106,6 +106,8 @@ public void setFuerza(int fuerza) {
    
     public void activarSangrado(int turnos) {//esto es para activar el sangrado del Orco
     this.turnosSangrando = turnos;
+    this.vida = vida-3;
+        System.out.println(" El oponente recive 3 puntos de daño");
 }
     public abstract void atacar(Personaje objetivo); // metodo abstracto para ser heredado
     // se cambia despues en sus clases
