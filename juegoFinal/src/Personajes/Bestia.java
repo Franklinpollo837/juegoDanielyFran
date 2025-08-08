@@ -1,6 +1,5 @@
 package Personajes;
 
-import modelo.Personaje;
 import Armas.armas;
 
 public class Bestia extends Personaje {
