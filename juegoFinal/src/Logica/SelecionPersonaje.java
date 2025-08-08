@@ -27,10 +27,11 @@ public class SelecionPersonaje {
           
             if (sc.hasNextInt()) { // Verifica si lo ingresado es un entero
                 opcionPersonaje = sc.nextInt();
+                sc.nextLine();
                 break; 
             } else {
                 System.out.println("ingrese un numero valido");
-                sc.next(); 
+                sc.nextLine();
             }
         }
 
@@ -47,14 +48,24 @@ public class SelecionPersonaje {
      private Humanos crearHumano() {
            System.out.println("Ingrese el nombre del Humano:");
     String nombre = sc.nextLine();
-
+    int opcionArma;
     while (true) {
         System.out.println("Escoge un arma para que " + nombre + " se defienda:\n");
         System.out.println("1 = Escopeta");
         System.out.println("2 = Rifle");
 
-        int opcionArma = sc.nextInt();
-        sc.nextLine(); 
+        
+              while (true) {
+          
+            if (sc.hasNextInt()) { // Verifica si lo ingresado es un entero
+                opcionArma = sc.nextInt();
+                sc.nextLine();
+                break; 
+            } else {
+                System.out.println("ingrese un numero valido");
+                sc.nextLine();
+            }
+        }
 
         switch (opcionArma) {
             case 1 -> {
@@ -77,14 +88,23 @@ public class SelecionPersonaje {
         
     System.out.println("Ingrese el nombre del Orco:");
     String nombre = sc.nextLine();
-
+    int opcionArma;
     while (true) {
         System.out.println("Escoge un arma para que " + nombre + " se defienda:\n");
         System.out.println("1 = Hacha");
         System.out.println("2 = Martillo");
 
-        int opcionArma = sc.nextInt();
-        sc.nextLine(); 
+                   while (true) {
+          
+            if (sc.hasNextInt()) { // Verifica si lo ingresado es un entero
+                opcionArma = sc.nextInt();
+                sc.nextLine();
+                break; 
+            } else {
+                System.out.println("ingrese un numero valido");
+                sc.nextLine();
+            }
+        }
 
         switch (opcionArma) {
             case 1 -> {
@@ -109,7 +129,7 @@ public class SelecionPersonaje {
         
            System.out.println("Ingrese el nombre del Elfo:");
     String nombre = sc.nextLine();
-
+    int opcionArma;
     while (true) {
         System.out.println("Escoge un arma para que " + nombre + " se defienda:\n");
         System.out.println("1 = Baculo de Agua");
@@ -117,8 +137,17 @@ public class SelecionPersonaje {
         System.out.println("3 = Baculo de Aire");
         System.out.println("4 = Baculo de Tierra");
 
-        int opcionArma = sc.nextInt();
-        sc.nextLine(); 
+                   while (true) {
+          
+            if (sc.hasNextInt()) { // Verifica si lo ingresado es un entero
+                opcionArma = sc.nextInt();
+                sc.nextLine();
+                break; 
+            } else {
+                System.out.println("ingrese un numero valido");
+                sc.nextLine();
+            }
+        }
 
         switch (opcionArma) {
             case 1 -> {
@@ -151,7 +180,7 @@ public class SelecionPersonaje {
     }
     
     public Bestia crearBestia(){
-        
+        int opcionArma;
                    System.out.println("Ingrese el nombre de la Bestia:");
     String nombre = sc.nextLine();
 
@@ -160,8 +189,17 @@ public class SelecionPersonaje {
         System.out.println("1 = Puños");
         System.out.println("2 = Espada");
 
-        int opcionArma = sc.nextInt();
-        sc.nextLine(); 
+                   while (true) {
+          
+            if (sc.hasNextInt()) { // Verifica si lo ingresado es un entero
+                opcionArma = sc.nextInt();
+                sc.nextLine();
+                break; 
+            } else {
+                System.out.println("ingrese un numero valido");
+                sc.nextLine();
+            }
+        }
 
         switch (opcionArma) {
             case 1 ->      {
