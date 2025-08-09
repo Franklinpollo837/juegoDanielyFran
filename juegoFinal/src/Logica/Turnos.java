@@ -4,6 +4,7 @@
  */
 package Logica;
 
+import Personajes.Orco;
 import Personajes.Personaje;
 import UsuarioPack.Usuario;
 import java.util.Random;
@@ -58,7 +59,20 @@ public class Turnos {
         TurnoInicial();
         int elecion;
         while(jugador1.getVida() >0 && jugador2.getVida() >0){
+            //por si el personaje esu un orco
+               if (actual instanceof Orco) {
+            ((Orco) actual).sanarTurnoSiguiente();
+            }
             System.out.println("\nTurno de: "+actual.getNombre());
+            
+               actual.aplicarEfectosPorTurno();
+
+        // Si el efecto lo dejó sin vida, el turno termina
+        if (actual.getVida() <= 0) {
+            System.out.println(actual.getNombre() + " ha caído antes de actuar.");
+            break;
+        }
+            
             //empiza turno
             System.out.println("\nQue accion quiere realizar?\n");
             System.out.println("1 = Atacar");
@@ -88,10 +102,11 @@ public class Turnos {
         System.out.println("\n¡La batalla ha terminado!");
         if (jugador1.getVida() <= 0) {
             System.out.println(jugador2.getNombre() + " ha ganado.");
+            usuario2.PartidasGanadas();
       
         } else {
             System.out.println(jugador1.getNombre() + " ha ganado.");
-           
+            usuario1.PartidasGanadas();
         }
     }
         

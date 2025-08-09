@@ -103,13 +103,24 @@ public void setFuerza(int fuerza) {
     }
     System.out.println(nombre + " ha recibido " + cantidad + " de daño. Vida restante: " + vida);
 }
-   
-    public void activarSangrado(int turnos) {//esto es para activar el sangrado del Orco
+   //con este metodo activamos el sangrado del hacha
+public void activarSangrado(int turnos) {
     this.turnosSangrando = turnos;
-    this.vida = vida-3;
-        System.out.println(" El oponente recive 3 puntos de daño");
+
 }
-    public abstract void atacar(Personaje objetivo); // metodo abstracto para ser heredado
+// y aqui se aplica el efecto
+    public void aplicarEfectosPorTurno() {
+    if (turnosSangrando > 0) {
+        this.vida -= 3;
+        System.out.println("El oponente recibe 3 puntos de daño por sangrado");
+        turnosSangrando--;
+    }
+
+    if (vida < 0) vida = 0; // para evitar vida negativa
+      }
+    public abstract void atacar(Personaje objetivo); // metodo abstracto para atacar
     // se cambia despues en sus clases
     public abstract void curarse();
+    // metodo abstracto para curarse
+    // se cambia despues en sus clases
 }
