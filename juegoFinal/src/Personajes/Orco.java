@@ -4,6 +4,7 @@
  */
 package Personajes;
 
+import Armas.Hacha;
 import Armas.armas;
 import java.util.Random;
 
@@ -15,7 +16,7 @@ public class Orco extends Personaje {
      private int dannioAcumulado;
     private boolean tieneCuraPendiente;
     private Random random = new Random();
-    private boolean curacionPendiente = false;
+
     
      public Orco(String nombre, armas arma) {
         super(nombre, 100, arma, "Orco");
@@ -23,18 +24,13 @@ public class Orco extends Personaje {
         this.tieneCuraPendiente = false;
     }
 
-
-
-
-   
-
     @Override
     //con este metodo creamos la manera de atacar del orco
     public void atacar(Personaje objetivo)  {
         int danio = arma.calcularDanio();
         objetivo.recibirDanio(danio);
         
-        if (arma.tieneSangrado()){
+        if (arma instanceof Hacha){
            
             System.out.println(objetivo.getNombre() + " empieza a sangrar por 2 turnos.");
              objetivo.activarSangrado(2);
@@ -43,19 +39,17 @@ public class Orco extends Personaje {
     }
 
     @Override
-    public void curarse() {
-         int cura = (int)(dannioAcumulado * 0.25);
-        this.vida += cura;
+      public void curarse() {
+        // Cura inmediata: 25% de la vida máxima
+        double cantidadInmediata = this.vidamaxima * 0.25;
+        this.vida += cantidadInmediata;
+        if (this.vida > this.vidamaxima) this.vida = this.vidamaxima;
 
-        if (this.vida > this.vidamaxima) {
-            this.vida = this.vidamaxima;
-        }
-
-        System.out.println(getNombre() + " usó una poción y recuperó " + cura + " de vida. Vida actual: " + this.vida);
-
-        tieneCuraPendiente = true; // activa el bono para el siguiente turno
-        dannioAcumulado = 0;
-    }
+        // activa la curación del siguiente turno (15%)
+        int cantidadCuradaInt = (int) cantidadInmediata;  
+    
+    System.out.println(getNombre() + " usó una poción y recuperó " + cantidadCuradaInt + " de vida. Vida actual: " + this.vida);
+}
     
     public void sanarTurnoSiguiente() {
            if (tieneCuraPendiente) {
