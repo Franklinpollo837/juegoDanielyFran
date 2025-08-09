@@ -47,6 +47,7 @@ public class Orco extends Personaje {
 
         // activa la curación del siguiente turno (15%)
         int cantidadCuradaInt = (int) cantidadInmediata;  
+        tieneCuraPendiente = true;
     
     System.out.println(getNombre() + " usó una poción y recuperó " + cantidadCuradaInt + " de vida. Vida actual: " + this.vida);
 }

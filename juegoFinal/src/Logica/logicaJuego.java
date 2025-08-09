@@ -118,6 +118,7 @@ public class logicaJuego {
         case 1 -> {
             System.out.println("Iniciando batalla...\n");
             combate.combate();
+         
         }
         
         case 2 -> {

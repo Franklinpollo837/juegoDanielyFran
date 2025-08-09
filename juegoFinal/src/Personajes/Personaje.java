@@ -118,6 +118,13 @@ public void activarSangrado(int turnos) {
 
     if (vida < 0) vida = 0; // para evitar vida negativa
       }
+    
+    public void reiniciar() {
+    this.vida = this.vidamaxima;        // Restaurar vida al máximo
+    this.turnosSangrando = 0;            // Quitar sangrado
+   
+   
+}
     public abstract void atacar(Personaje objetivo); // metodo abstracto para atacar
     // se cambia despues en sus clases
     public abstract void curarse();
