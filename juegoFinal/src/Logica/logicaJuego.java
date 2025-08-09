@@ -122,10 +122,10 @@ public class logicaJuego {
         
         case 2 -> {
             System.out.println("Mostrando stats...");
-             usuario1.PartidasGanadas();
-             usuario2.PartidasGanadas();
-            System.out.println("Partidas ganas por parte de "+usuario1.getNombre()+ " son de: "+usuario1.PartidasGanadas()+"\n");
-            System.out.println("Partidas ganas por parte de "+usuario2.getNombre()+ " son de: "+usuario2.PartidasGanadas()+"\n");
+
+         
+            System.out.println("Partidas ganas por parte de "+usuario1.getNombre()+ " son de: "+usuario1.getNganadas()+"\n");
+            System.out.println("Partidas ganas por parte de "+usuario2.getNombre()+ " son de: "+usuario2.getNganadas()+"\n");
         }
         case 3 -> {
             System.out.println("Saliendo...");

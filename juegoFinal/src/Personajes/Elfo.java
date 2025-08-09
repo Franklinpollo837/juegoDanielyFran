@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -34,15 +34,16 @@ public class Elfo extends Personaje {
 
      if (tipoMagia.equalsIgnoreCase("Fuego")) {
             danio = arma.calcularDanio();
-            danio += (int) (danio * 0.10); // +10%
+           
+            danio = (int) (danio*0.10);
         } else if (tipoMagia.equalsIgnoreCase("Tierra")) {
             danio = arma.calcularDanio();
             danio += (int) (danio * 0.02); // +2%
             // Chance de doble ataque
             if (random.nextDouble() < 0.30) {
                 int extra = arma.calcularDanio();
-                System.out.println("¡Ataque doble con magia de Tierra! Daño adicional: " + extra);
-                danio += extra;
+                System.out.println("Ataque doble con magia de Tierra! Daño adicional: " + extra);
+                danio= danio+extra;
             }
         } else if (tipoMagia.equalsIgnoreCase("Aire")) {
             danio = arma.calcularDanio();
